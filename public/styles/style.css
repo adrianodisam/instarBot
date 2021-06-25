@@ -1,0 +1,12 @@
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    height: 500px;
+    width: 100px;
+}
+
+.divForms {
+    box-shadow: 18px 25px 70px 0px rgba(0, 0, 0, 0.83);
+    -webkit-box-shadow: 18px 25px 70px 0px rgba(0, 0, 0, 0.83);
+    -moz-box-shadow: 18px 25px 70px 0px rgba(0, 0, 0, 0.83);
+}
