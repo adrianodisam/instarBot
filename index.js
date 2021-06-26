@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use('/api', apiRoute, async function logar() {
-    let email = JSON.stringify(users.users[0])
-    let senha = JSON.stringify(users.users[1])
-    let url = JSON.stringify(users.users[2])
+    let email = (users.users[0]);
+    let senha = (users.users[1]);
+    let url = (users.users[2]);
     const browser = await puppeteer.launch({
         headless: false,
         slowMo: 400
@@ -27,14 +27,14 @@ app.use('/api', apiRoute, async function logar() {
 
 
 
-    await page.type('[name="username"] ', email.replace('"', "").replace('email', "").replace('{', "").replace(':', "").replace('""', "").replace('}', "").replace('"', ""));
-    await page.type('[name="password"]', senha.replace('"', "").replace('password', "").replace('{', "").replace(':', "").replace('""', "").replace('}', "").replace('"', ""));
+    await page.type('[name="username"] ', email);
+    await page.type('[name="password"]', senha);
     await page.waitForTimeout(4000); //tempo para ir para o proximo comando
 
     await page.click('.sqdOP.L3NKy.y3zKF');
     await page.waitForTimeout(4000);
     //vai para a postagem especifica
-    await page.goto(url.replace('"', "").replace('url', "").replace('{', "").replace(':', "").replace('""', "").replace('}', "").replace('"', ""));
+    await page.goto(url);
     await page.waitForTimeout(3000);
     const arr = ['Eu quero', 'Já ganhei', 'Eu', 'dessa vez eu ganho', 'Fé que vou ganhar', 'É meu', 'premio é meu já', 'meuuu', 'ganho com certeza', 'ja vaoi  chegar pra mim', 'entrega pra mim', 'ja tá chegando'];
 
