@@ -1,10 +1,10 @@
-const PORT = 8080;
 const express = require('express');
 const puppeteer = require('puppeteer');
 const users = require('./models/users')
 const apiRoute = require('./router/api')
 const app = express();
 const path = require('path');
+const port = 8080;
 
 // craindo a rota api 
 
@@ -87,4 +87,4 @@ app.use('/api', apiRoute, async function logar() {
     // await browser.close();
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || port);

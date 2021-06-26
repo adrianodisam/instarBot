@@ -6,7 +6,7 @@ module.exports = {
 
 
     ],
-    newUser(email, password, url) {
+    newUser(email, senha, url) {
         this.users = [];
         this.users.push(email);
         this.users.push(senha);
