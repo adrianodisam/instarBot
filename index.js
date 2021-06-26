@@ -87,7 +87,4 @@ app.use('/api', apiRoute, async function logar() {
     // await browser.close();
 });
 
-app.listen(PORT, () => {
-    console.log("servidor rodadndo  http://localhost:", PORT)
-
-})
+app.listen(process.env.PORT || 8080);
