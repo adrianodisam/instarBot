@@ -33,7 +33,8 @@ app.use('/api', apiRoute, async function logar() {
     function minutos(valor) {
         let mile = 1000;
         let result = valor * mile;
-        return Math.floor(Math.random() * result + 3000);
+        return Math.floor(Math.random() * result + result);
+
     };
 
 
@@ -44,119 +45,39 @@ app.use('/api', apiRoute, async function logar() {
 
     await page.click('.sqdOP.L3NKy.y3zKF');
     await page.waitForTimeout(4000);
+
     //vai para a postagem especifica
     await page.goto(url);
     await page.waitForTimeout(3000);
-    let arr = ['Eu quero', 'Já ganhei', 'Eu', 'dessa vez eu ganho', 'Fé que vou ganhar', 'É meu', 'premio é meu já', 'meuuu', 'ganho com certeza', 'ja vaoi  chegar pra mim', 'entrega pra mim', 'ja tá chegando'];
 
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
+    let arr = ['Eu quero demais', 'Já ganhei', 'Eu ganho', 'dessa vez eu ganho', 'Fé que vou ganhar', 'É meu', 'premio é meu já', 'meuuu', 'ganho com certeza', 'ja vai  chegar pra mim', 'entrega pra mim', 'ja tá chegando é meu'];
 
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
 
-        //clica no botão
-        await page.click('[type="submit"]')
+    async function comentario() {
+        for (let x = 1; x <= comentarios; x++) {
+            //sorteia o array random
+            var item = arr[Math.floor(Math.random() * arr.length)];
+            await page.waitForTimeout(minutos(tempo));
+            // comenta o array selecionadp
+            await page.type('.Ypffh', item);
 
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
+            await page.waitForTimeout(minutos(tempo));
 
+            //clica no botão
+            await page.click('[type="submit"]')
+
+            console.log(x)
+
+            await page.waitForTimeout(minutos(tempo));
+        }
     }
-    await page.waitForTimeout(minutos(pausa));
+    comentario();
 
+    await page.waitForNavigation();
 
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
+    setInterval(comentario, minutos(pausa));
 
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
-
-        //clica no botão
-        await page.click('[type="submit"]')
-
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
-
-    }
-    await page.waitForTimeout(minutos(pausa));
-
-
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
-
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
-
-        //clica no botão
-        await page.click('[type="submit"]')
-
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
-
-    }
-    await page.waitForTimeout(minutos(pausa));
-
-
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
-
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
-
-        //clica no botão
-        await page.click('[type="submit"]')
-
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
-
-    }
-    await page.waitForTimeout(minutos(pausa));
-
-
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
-
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
-
-        //clica no botão
-        await page.click('[type="submit"]')
-
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
-
-    }
-    await page.waitForTimeout(minutos(pausa));
-    for (let x = 1; x < comentarios; x++) {
-        //sorteia o array random
-        var item = arr[Math.floor(Math.random() * arr.length)];
-
-        // comenta o array selecionadp
-        await page.type('.Ypffh', item);
-        await page.waitForTimeout(3000);
-
-        //clica no botão
-        await page.click('[type="submit"]')
-
-        console.log(x)
-        await page.waitForTimeout(minutos(tempo));
-
-    }
-    await page.waitForTimeout(minutos(pausa));
-
-
-    //fecha o browser
-    await browser.close();
+    //fecha o browse    // await browser.close();
 });
 
 app.listen(process.env.PORT || port);
