@@ -18,7 +18,10 @@ router.post("/new", bodyParser.json(), (req, res) => {
     let email = req.body.email;
     let senha = req.body.senha;
     let url = req.body.url;
-    users.newUser(email, senha, url)
+    let comentarios = req.body.comentarios;
+    let tempo = req.body.tempo;
+    let pausa = req.body.pausa;
+    users.newUser(email, senha, url, comentarios, tempo, pausa)
 
     res.send("post adicionado");
 

@@ -3,8 +3,12 @@ function newUser() {
     let email = document.getElementById('userEmail').value;
     let senha = document.getElementById('userSenha').value;
     let url = document.getElementById('userUrl').value;
+    let comentarios = document.getElementById('userPausa').value;
+    let tempo = document.getElementById('userTempo').value;
+    let pausa = document.getElementById('userPausaComent').value;
 
-    let user = { email, senha, url };
+
+    let user = { email, senha, url, comentarios, tempo, pausa };
 
     const options = {
         method: "POST",
@@ -20,5 +24,8 @@ function newUser() {
     document.getElementById('userEmail').value = "";
     document.getElementById('userSenha').value = "";
     document.getElementById('userUrl').value = "";
+    document.getElementById('userPausa').value = "";
+    document.getElementById('userTempo').value = "";
+    document.getElementById('userPausaComent').value = "";
 
 }
