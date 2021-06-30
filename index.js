@@ -34,10 +34,8 @@ app.use('/api', apiRoute, async function logar() {
     function minutos(valor) {
         let mile = 1000;
         let result = valor * mile;
-        return Math.floor(Math.random() *1000 + result + 3000);
+        return Math.floor(Math.random() * 1000 + result + 3000);
     };
-
-
 
     await page.type('[name="username"] ', email);
     await page.type('[name="password"]', senha);
@@ -48,32 +46,21 @@ app.use('/api', apiRoute, async function logar() {
     //vai para a postagem especifica
     await page.goto(url);
     await page.waitForTimeout(3000);
-    
 
-        async function comentario() {
-            for (let x = 1; x <= comentarios; x++) {
-               
-                
-                
-                // comenta o array selecionadp
-                await page.type('.Ypffh', comentar[Math.floor(Math.random() * comentar.length)] ); //sorteia o array random
-    
-                await page.waitForTimeout(3000);
-                //clica no botão
-                await page.click('[type="submit"]')
-    
-                console.log(x)
-    
-                await page.waitForTimeout(minutos(tempo));
-            }
+    setInterval(async() => {
+
+        for (let x = 1; x <= comentarios; x++) {
+            // comenta o array selecionadp
+            await page.type('.Ypffh', comentar[Math.floor(Math.random() * comentar.length)]); //sorteia o array random
+            await page.waitForTimeout(3000);
+            //clica no botão
+            await page.click('[type="submit"]')
+            console.log(x)
+            await page.waitForTimeout(minutos(tempo));
         }
-        comentario();
-    
         await page.waitForNavigation();
-    
-        setInterval(comentario, minutos(pausa));
-    
         //fecha o browse    // await browser.close();
-    });
-    
-    app.listen(process.env.PORT || port);
+    }, minutos(pausa));
+});
+
+app.listen(process.env.PORT || port);

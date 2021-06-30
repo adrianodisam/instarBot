@@ -1,12 +1,17 @@
-body{
+body {
     background-color: aliceblue;
 }
 
- .card-login {
+.card-login {
     padding: 5px 0 0 0;
     width: 350px;
     margin: 0 auto;
 }
+
+.btn {
+    background-color: rgb(83, 122, 182);
+}
+
 
 /* Barra de navegação
 -----------------------------*/
@@ -28,9 +33,26 @@ h3 {
     color: rgb(83, 122, 182);
     font-weight: 900;
 }
-#res{
-    background-color: beige;
-}
-#login{
+
+#res {
+    margin-left: 4px;
+    border: solid 1.5px bisque;
     background-color: rgb(83, 122, 182);
+    color: wheat;
+}
+
+#login {
+    background-color: rgb(83, 122, 182);
+    color: white;
+    font-weight: bold;
+}
+
+.pdiv {
+    display: inline;
+    border-radius: 10%;
+    background-color: rgb(83, 122, 182);
+    font-weight: 900;
+    margin: 2px;
+    color: white;
+    max-width: 20px;
 }

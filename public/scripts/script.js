@@ -1,24 +1,20 @@
 let comentar = []
 
-function adicionar(){
+function adicionar() {
     let comentario = document.getElementById('userComentar').value;
-    
-    
-    
- comentar.push(comentario)
- 
- document.getElementById("res").innerHTML = `${comentar}  `;
- document.getElementById('userComentar').value = "";
- 
+    comentar.push(comentario)
+    let dadosC = document.getElementById("res");
+    dadosC.innerHTML = "";
+    dadosC.innerHTML += `<div>${comentar} </div>`;
+    document.getElementById('userComentar').value = "";
 }
-function excluir(){
-    
-    
-    
+
+function excluir() {
     comentar.pop()
-    document.getElementById("res").innerHTML = `${comentar}  `;
-    
-   }
+    document.getElementById("res").innerHTML = `<p>${comentar} </p>`;
+
+
+}
 
 
 function newUser() {
@@ -29,10 +25,10 @@ function newUser() {
     let comentarios = document.getElementById('userPausa').value;
     let tempo = document.getElementById('userTempo').value;
     let pausa = document.getElementById('userPausaComent').value;
-    
 
 
-    let user = { email, senha, url, comentarios, tempo, pausa,comentar };
+
+    let user = { email, senha, url, comentarios, tempo, pausa, comentar };
 
     const options = {
         method: "POST",
