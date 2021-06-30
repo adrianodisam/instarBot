@@ -5,8 +5,10 @@ module.exports = {
     users: [
 
 
-    ],
-    newUser(email, senha, url, comentarios, tempo, pausa) {
+    ], getAll(){
+        return this.users
+    },
+    newUser(email, senha, url, comentarios, tempo, pausa, comentar) {
         this.users = [];
         this.users.push(email);
         this.users.push(senha);
@@ -14,5 +16,6 @@ module.exports = {
         this.users.push(comentarios);
         this.users.push(tempo);
         this.users.push(pausa);
+        this.users.push(comentar);
     }
 }
