@@ -9,7 +9,13 @@ body {
 }
 
 .btn {
+    max-width: 200px;
     background-color: rgb(83, 122, 182);
+}
+
+.btn:hover {
+    background-color: white;
+    color: rgb(83, 122, 182);
 }
 
 
@@ -36,9 +42,15 @@ h3 {
 
 #res {
     margin-left: 4px;
+    max-width: 300px;
     border: solid 1.5px bisque;
     background-color: rgb(83, 122, 182);
-    color: wheat;
+    color: white;
+}
+
+#divComent {
+    margin: 4px;
+    max-width: 275px;
 }
 
 #login {

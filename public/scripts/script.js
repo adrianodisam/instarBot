@@ -5,7 +5,9 @@ function adicionar() {
     comentar.push(comentario)
     let dadosC = document.getElementById("res");
     dadosC.innerHTML = "";
-    dadosC.innerHTML += `<div>${comentar} </div>`;
+    dadosC.innerHTML +=
+        `<button type="button"class="btn btn-primary m-2 res" id="divComent" >${comentar}</button>`
+
     document.getElementById('userComentar').value = "";
 }
 

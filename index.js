@@ -31,10 +31,16 @@ app.use('/api', apiRoute, async function logar() {
     await page.goto('https://www.instagram.com/'); // vai para a pagina de login
     await page.waitForTimeout(4000)
 
-    function minutos(valor) {
+    function segundos(valor) {
         let mile = 1000;
         let result = valor * mile;
-        return Math.floor(Math.random() * 1000 + result + 3000);
+        return Math.floor(Math.random() * 5000 + result + 3000);
+    };
+
+    function minutos(valor) {
+        let mile = 1000 * 60;
+        let result = valor * mile;
+        return Math.floor(result);
     };
 
     await page.type('[name="username"] ', email);
@@ -47,20 +53,30 @@ app.use('/api', apiRoute, async function logar() {
     await page.goto(url);
     await page.waitForTimeout(3000);
 
-    setInterval(async() => {
 
+
+    async function comentario() {
         for (let x = 1; x <= comentarios; x++) {
             // comenta o array selecionadp
             await page.type('.Ypffh', comentar[Math.floor(Math.random() * comentar.length)]); //sorteia o array random
+
             await page.waitForTimeout(3000);
             //clica no botão
             await page.click('[type="submit"]')
-            console.log(x)
-            await page.waitForTimeout(minutos(tempo));
+
+            console.log(x, segundos(tempo))
+
+            await page.waitForTimeout(segundos(tempo));
         }
-        await page.waitForNavigation();
-        //fecha o browse    // await browser.close();
-    }, minutos(pausa));
+        console.log(minutos(pausa) + segundos(tempo) * comentarios + 100000)
+    }
+    comentario();
+
+    console.log(minutos(pausa) + segundos(tempo) * comentarios + 100000)
+    await page.waitForNavigation();
+
+    setInterval(comentario, minutos(pausa) + segundos(tempo) * comentarios + 100000);
+
 });
 
 app.listen(process.env.PORT || port);
